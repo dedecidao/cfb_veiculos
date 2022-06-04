@@ -1,0 +1,32 @@
+<script src="jquery-3.6.0.min.js"></script>
+<!-- 
+    Slide com jQuery
+ -->
+<script>
+    //var slides = ["#s1", "#s2", "#s3", "#s4", "#s5"];
+    var slides = ["#s1", "#s2", "#s3"];
+    slideAtual = 0;
+    slideMax = 2; // Ajustar para a quantidade de Slides a ser usado
+    tempo = 4000; /* 10 mil milisegundos = 10 segundos */
+
+    $(document).ready(function () {
+        $(slides[slideAtual]).fadeTo(0, 1);
+        setInterval(troca, tempo);
+        function troca() {
+            $(slides[slideAtual]).fadeTo(1000, 0);
+            slideAtual++;
+            if (slideAtual > slideMax) {
+                slideAtual = 0;
+            }
+            $(slides[slideAtual]).fadeTo(1000, 1);
+        }
+    })
+
+</script>
+
+
+<img id="s1" src="imgs/slides/s1.jpg" alt="Slide-01">
+<img id="s2" src="imgs/slides/s2.jpg" alt="Slide-02">
+<img id="s3" src="imgs/slides/s3.jpg" alt="Slide-03">
+<img id="s4" src="imgs/slides/s4.bmp" alt="">
+<img id="s5" src="imgs/slides/s5.bmp" alt="">
