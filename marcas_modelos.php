@@ -23,12 +23,21 @@ include('conexao.php');
 <html lang="pt-br">
 
 <head>
+    <title>CFB Veiculos</title> 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/estilo.css">
-    <title>CFB Veiculos</title>
-
+    <script>
+        function add() {
+            document.getElementById('f_add').style.display = "block";
+            document.getElementById('f_del').style.display = "none";
+        }
+        function del() {
+            document.getElementById('f_add').style.display = "none";
+            document.getElementById('f_del').style.display = "block";
+        }
+    </script>        
 </head>
 
 <body>
@@ -41,8 +50,10 @@ include('conexao.php');
         <a href="gerenciamento.php?num=<?php echo $n1; ?> " target="self" class="btmenu">Voltar</a> <!-- Sempre passando a variavel da sessao armazenada em num pelas paginas" -->
         <h1>Marcas / Modelos</h1>
 
-        <button class="btmenu">Adicionar</button>
-        <button class="btmenu">Deletar</button>
+
+        <!-- Add um pouco de javascript Para Exibir os form de acordo com os botoes abaixo -->
+        <button class="btmenu" onclick="add()">Adicionar</button>
+        <button class="btmenu" onclick="del()">Deletar</button>
         <!-- A rotina abaixo se Refere a chamada de 4 Formularios baseado na chamada da propria pagina
         passada em um campo hidden pelos formularios a pagina se comportará
         de acordo:
@@ -110,7 +121,7 @@ include('conexao.php');
 
         <!-- FORM ADD MARCA COD 01 -->
         <div id="f_add" class="f_add_del">
-            <form name="f_nova_marca" action="marcas_modelos.php" method="get" class="">
+            <form name="f_nova_marca" action="marcas_modelos.php" method="get" class="marcasmodelos">
                 <input type="hidden" name="num" value="<?php echo $n1 ?>">
                 <input type="hidden" name="codigo" value="1">
                 <label for="">Nova marca</label>
@@ -118,7 +129,7 @@ include('conexao.php');
                 <input type="submit" value="Gravar" class="btmenu" name="f_bt_nova_marca">
             </form>
             <!-- FORM ADD MODELO COD 02 -->
-            <form name="f_novo_modelo" action="marcas_modelos.php" method="get" class="">
+            <form name="f_novo_modelo" action="marcas_modelos.php" method="get" class="marcasmodelos">
                 <input type="hidden" name="num" value="<?php echo $n1 ?>">
                 <input type="hidden" name="codigo" value="2">
                 <label>Selecione uma marca</label>
@@ -144,7 +155,7 @@ include('conexao.php');
 
         <!-- DELETA UMA MARCA COD 03 -->
         <div id="f_del" class="f_add_del">
-            <form name="f_del_marcas" action="marcas_modelos.php" method="get" class="">
+            <form name="f_del_marcas" action="marcas_modelos.php" method="get" class="marcasmodelos">
                 <input type="hidden" name="num" value="<?php echo $n1 ?>">
                 <input type="hidden" name="codigo" value="3">
                 <label>Selecione uma marca</label>
@@ -165,7 +176,7 @@ include('conexao.php');
             </form>
             <!-- DELETA UMA MARCA COD 03 -->
             <div id="f_del" class="">
-                <form name="f_del_modelo" action="marcas_modelos.php" method="get" class="">
+                <form name="f_del_modelo" action="marcas_modelos.php" method="get" class="marcasmodelos">
                     <input type="hidden" name="num" value="<?php echo $n1 ?>">
                     <input type="hidden" name="codigo" value="4">
                     <label>Selecione um modelo</label>
@@ -187,6 +198,13 @@ include('conexao.php');
             </div>
         </div>
         <?php
+            if (isset($_GET["codigo"])) {
+                if(($vcod == 1) or ($vcod == 2)){
+                    echo "<script>document.getElementById('f_add').style.display = 'block'</script>";
+                } else if (($vcod == 3) or ($vcod == 4)){
+                    echo "<script>document.getElementById('f_del').style.display = 'block'</script>";
+                }
+            }
         ?>
     </section>
 

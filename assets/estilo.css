@@ -259,4 +259,12 @@ footer a{
     padding: 15px;
     margin-top: 15px;
     background-color: #BBB;
+    display: none;
+}
+
+.marcasmodelos {
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #FFF;
 }
