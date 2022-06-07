@@ -48,7 +48,7 @@
         <div class="btmenu_adm">
             <button id="btcar"class="btmenu">Carros</button>
             <div id="car_drop" class="menudrop">
-                <a href="">Novo</a>
+                <a href="novo_carro.php?num=<?php echo $n1 ?>">Novo</a>
                 <a href="">Editar</a>
                 <a href="">Excluir</a>
                 <a href="marcas_modelos.php?num=<?php echo $n1 ?>">Marcas  /  Modelos</a>
