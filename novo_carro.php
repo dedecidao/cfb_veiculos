@@ -74,9 +74,9 @@
             <input type="text" name="f_versao" maxlength="50" size="50" required="required" >
 
             <label> ano Fab </label>
-            <input type="text" name="f_anofab" maxlength="4" size="50" required="required" >
+            <input type="text" name="f_anofab" maxlength="4" size="4" required="required" >
             <label> ano Modelo </label>
-            <input type="text" name="f_anomod" maxlength="4" size="50" required="required" >
+            <input type="text" name="f_anomod" maxlength="4" size="4" required="required" >
 
             <label> Obs </label>
             <input type="text" name="f_obs" rows="4" cols="50" required="required" >
